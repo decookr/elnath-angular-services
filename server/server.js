@@ -3,6 +3,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 var companies = require('./routes/companies');
+var cars = require('./routes/cars');
 
 
 var port = process.env.PORT || 5000;
@@ -12,6 +13,7 @@ app.use(bodyParser.json());
 app.use(express.static('server/public'));
 
 app.use('/companies', companies);
+app.use('/cars', cars);
 
 
 app.listen(port, function () {

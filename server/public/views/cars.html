@@ -1,2 +1,15 @@
 <h1>Cars Page</h1>
-<div>{{vm.message}}</div>
+    <div >
+        <ul>
+            <input type="text" ng-model="vm.newCar.year" placeholder="Year">
+            <select ng-model="vm.newCar.company_id" ng-options="company.id as company.name for company in vm.companies.list track by company.id"></select>                
+            <input type="text" ng-model="vm.newCar.model" placeholder="Model">
+            <input type="text" ng-model="vm.newCar.nickname" placeholder="Nickname">   
+            <button ng-click="vm.addNewCar(vm.newCar)">Add Car</button>
+            {{vm.newCar}}
+            
+            <li ng-repeat="car in vm.cars.list"> 
+            Year:  {{car.year}}, Model:  {{car.model}}, Nickname:  {{car.nickname}}, Company Name:  {{car.name}}, Country of Origin:  {{car.country}}
+            </li>
+        </ul>
+    </div>
