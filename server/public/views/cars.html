@@ -1,16 +1,30 @@
 <h1>Cars Page</h1>
-    <div >
-        <ul>
-            <input type="text" ng-model="vm.newCar.year" placeholder="Year">
-            <select ng-model="vm.newCar.company_id" ng-options="company.id as company.name for company in vm.companies.list track by company.id"></select>                
-            <input type="text" ng-model="vm.newCar.model" placeholder="Model">
-            <input type="text" ng-model="vm.newCar.nickname" placeholder="Nickname">   
-            <button ng-click="vm.addNewCar(vm.newCar)">Add Car</button>
-            {{vm.newCar}}
-            
-            <li ng-repeat="car in vm.cars.list"> 
-            Year:  {{car.year}}, Model:  {{car.model}}, Nickname:  {{car.nickname}}, Company Name:  {{car.name}}, Country of Origin:  {{car.country}}
+
+    <input type="text" ng-model="vm.newCar.year" placeholder="Year">
+    <select ng-model="vm.newCar.company_id" ng-options="company.id as company.name for company in vm.companies.list track by company.id"></select>                
+    <input type="text" ng-model="vm.newCar.model" placeholder="Model">
+    <input type="text" ng-model="vm.newCar.nickname" placeholder="Nickname">   
+    <button ng-click="vm.addNewCar(vm.newCar)">Add Car</button>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Nickname</th>
+                    <th>Country of Origin</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="car in vm.cars.list">
+                    <td>{{car.year}}</td><td>{{car.name}}</td><td>{{car.model}}</td><td>{{car.nickname}}</td><td>{{car.country}}</td>
+                    <button ng-click="vm.deleteCar(car)">Delete</button>                    
+                </tr>
+            </tbody>
+            <!-- <li ng-repeat="car in vm.cars.list"> 
+            Year:  , Model:  {{car.model}}, Nickname:  {{car.nickname}}, Company Name:  {{car.name}}, Country of Origin:  {{car.country}}
             <button ng-click="vm.deleteCar(car)">Delete</button>
-            </li>
-        </ul>
+            </li> -->
+        </table>
     </div>
