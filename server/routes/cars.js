@@ -10,7 +10,7 @@ router.get('/', function(req,res){
             console.log('Error connecting to database', errorConnectingToDatabase);
             res.sendStatus(500);
         } else {
-            client.query('SELECT * FROM car JOIN company ON company.id = car.company_id;', function(errorMakingQuery, result){
+            client.query('SELECT car.*, company.name, company.country FROM car JOIN company ON company.id = car.company_id;', function(errorMakingQuery, result){
                 done();
                 if(errorMakingQuery){
                     console.log('Error making query', errorMakingQuery);
@@ -44,4 +44,26 @@ router.post('/', function (req,res){
         }
     });
 })
+
+router.delete('/:id', function (req,res){
+    var carToRemove = req.params.id;
+    pool.connect(function(errorConnectingToDatabase, client, done){
+        if(errorConnectingToDatabase){
+            console.log('Error connecting to database', errorConnectingToDatabase);
+            res.sendStatus(500);
+        } else {
+            client.query(`DELETE FROM car WHERE id=$1;`, [carToRemove], function(errorMakingQuery, result){
+                done();
+                if(errorMakingQuery){
+                    console.log('Error making query', errorMakingQuery);
+                    res.sendStatus(500);
+                } else{
+                    res.sendStatus(200);
+                }
+            });
+        }
+    });
+})
+
+
 module.exports = router;

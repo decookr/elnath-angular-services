@@ -25,6 +25,17 @@ app.service('CarService', ['$http', function($http){
         });
     }
 
+    self.deleteCar = function (carToDelete) {
+        console.log(carToDelete);
+        $http({
+            method: 'DELETE',
+            url: '/cars/' + carToDelete.id,
+        }).then(function (response) {
+            console.log('response', response);
+            self.getCars();
+        });
+    };
+
     self.getCars();//you MUST call the function here to get the result to show up!!!
 
 
