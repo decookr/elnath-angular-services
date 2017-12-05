@@ -1,4 +1,4 @@
 <h1>Company Page</h1>
-<div>
-    {{vm.message}}
+<div ng-repeat="company in vm.company">
+    {{company.name}}:   {{company.country}}
 </div>
