@@ -2,6 +2,10 @@
 <div >
     <ul>
         <!-- vm.company.list refers to controller in company.controller.js -->
+        <input type="text" ng-model="vm.newCompany.name" placeholder="Company Name">
+        <input type="text" ng-model="vm.newCompany.country" placeholder="Country">
+        <button ng-click="vm.addNewCompany(vm.newCompany)">Add Company</button>
+{{vm.newCompany}}
         <li ng-repeat="company in vm.company.list"> 
                 {{company.name}} is located in {{company.country}}                
         </li>
