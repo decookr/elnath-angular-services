@@ -1,4 +1,9 @@
 <h1>Company Page</h1>
-<div ng-repeat="company in vm.company">
-    {{company.name}}:   {{company.country}}
+<div >
+    <ul>
+        <!-- vm.company.list refers to controller in company.controller.js -->
+        <li ng-repeat="company in vm.company.list"> 
+                {{company.name}} is located in {{company.country}}                
+        </li>
+    </ul>
 </div>
