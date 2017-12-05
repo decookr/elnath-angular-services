@@ -1,12 +1,14 @@
-<h1>Cars Page</h1>
+<div class="container">
+
+    <h1>Ryan's Car Lot</h1>
 
     <input type="text" ng-model="vm.newCar.year" placeholder="Year">
-    <select ng-model="vm.newCar.company_id" ng-options="company.id as company.name for company in vm.companies.list track by company.id"></select>                
+    <select ng-model="vm.newCar.company_id" ng-options="company.id as company.name for company in vm.companies.list track by company.id"></select>
     <input type="text" ng-model="vm.newCar.model" placeholder="Model">
-    <input type="text" ng-model="vm.newCar.nickname" placeholder="Nickname">   
-    <button ng-click="vm.addNewCar(vm.newCar)">Add Car</button>
+    <input type="text" ng-model="vm.newCar.nickname" placeholder="Nickname">
+    <button class="btn btn-default" ng-click="vm.addNewCar(vm.newCar)">Add Car</button>
     <div>
-        <table>
+        <table class="table">
             <thead>
                 <tr>
                     <th>Year</th>
@@ -19,9 +21,16 @@
             </thead>
             <tbody>
                 <tr ng-repeat="car in vm.cars.list">
-                    <td>{{car.year}}</td><td>{{car.name}}</td><td>{{car.model}}</td><td>{{car.nickname}}</td><td>{{car.country}}</td>
-                    <td><button ng-click="vm.deleteCar(car)">Delete</button></td>                   
+                    <td>{{car.year}}</td>
+                    <td>{{car.name}}</td>
+                    <td>{{car.model}}</td>
+                    <td>{{car.nickname}}</td>
+                    <td>{{car.country}}</td>
+                    <td>
+                        <button class="btn btn-default" ng-click="vm.deleteCar(car)">Delete</button>
+                    </td>
                 </tr>
             </tbody>
         </table>
     </div>
+</div>
