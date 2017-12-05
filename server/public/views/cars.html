@@ -14,17 +14,14 @@
                     <th>Model</th>
                     <th>Nickname</th>
                     <th>Country of Origin</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
                 <tr ng-repeat="car in vm.cars.list">
                     <td>{{car.year}}</td><td>{{car.name}}</td><td>{{car.model}}</td><td>{{car.nickname}}</td><td>{{car.country}}</td>
-                    <button ng-click="vm.deleteCar(car)">Delete</button>                    
+                    <td><button ng-click="vm.deleteCar(car)">Delete</button></td>                   
                 </tr>
             </tbody>
-            <!-- <li ng-repeat="car in vm.cars.list"> 
-            Year:  , Model:  {{car.model}}, Nickname:  {{car.nickname}}, Company Name:  {{car.name}}, Country of Origin:  {{car.country}}
-            <button ng-click="vm.deleteCar(car)">Delete</button>
-            </li> -->
         </table>
     </div>
